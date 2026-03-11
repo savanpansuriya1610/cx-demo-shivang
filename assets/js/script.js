@@ -370,6 +370,18 @@ $('.latest-projects__item-wrapper').on('mousemove',function(e){
     {breakpoint:600,settings:{slidesToShow:1}}
   ]
 });
+
+ $('.growth__slider').slick({
+  slidesToShow:1,
+  slidesToScroll:1,
+  infinite:true,
+  autoplay:false,
+  autoplaySpeed:1000,
+  speed:2000,
+  arrows:true,
+  dots:false,
+  pauseOnHover:true
+});
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -408,3 +420,32 @@ document.addEventListener("DOMContentLoaded", function () {
   observer.observe(counter);
 
 });
+
+
+const tabs=document.querySelectorAll(".pricing__tab")
+
+tabs.forEach(tab=>{
+
+tab.addEventListener("click",()=>{
+
+document.querySelectorAll(".pricing__tab")
+.forEach(t=>t.classList.remove("pricing__tab--active"))
+
+tab.classList.add("pricing__tab--active")
+
+let target=tab.dataset.tab
+
+document.querySelectorAll(".pricing__content")
+.forEach(content=>{
+
+content.classList.remove("pricing__content--active")
+
+if(content.dataset.content===target){
+content.classList.add("pricing__content--active")
+}
+
+})
+
+})
+
+})
