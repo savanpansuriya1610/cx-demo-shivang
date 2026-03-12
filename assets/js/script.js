@@ -422,30 +422,131 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-const tabs=document.querySelectorAll(".pricing__tab")
+const tabs = document.querySelectorAll(".pricing__tab");
+const indicator = document.querySelector(".pricing__tab-indicator");
 
-tabs.forEach(tab=>{
+function moveIndicator(tab){
+  const parent = tab.parentElement;
 
-tab.addEventListener("click",()=>{
+  const tabRect = tab.getBoundingClientRect();
+  const parentRect = parent.getBoundingClientRect();
 
-document.querySelectorAll(".pricing__tab")
-.forEach(t=>t.classList.remove("pricing__tab--active"))
+  const left = tabRect.left - parentRect.left;
 
-tab.classList.add("pricing__tab--active")
-
-let target=tab.dataset.tab
-
-document.querySelectorAll(".pricing__content")
-.forEach(content=>{
-
-content.classList.remove("pricing__content--active")
-
-if(content.dataset.content===target){
-content.classList.add("pricing__content--active")
+  indicator.style.width = tabRect.width + "px";
+  indicator.style.transform = `translateX(${left}px)`;
 }
 
-})
+// initial position
+moveIndicator(document.querySelector(".pricing__tab--active"));
 
-})
+tabs.forEach(tab => {
 
-})
+  tab.addEventListener("click", () => {
+
+    tabs.forEach(t => t.classList.remove("pricing__tab--active"));
+    tab.classList.add("pricing__tab--active");
+
+    moveIndicator(tab);
+
+    let target = tab.dataset.tab;
+
+    document.querySelectorAll(".pricing__content")
+      .forEach(content => {
+
+        content.classList.remove("pricing__content--active");
+
+        if(content.dataset.content === target){
+          content.classList.add("pricing__content--active");
+        }
+
+      });
+
+  });
+
+});
+
+// select all titles
+
+gsap.registerPlugin(ScrollTrigger);
+
+document.querySelectorAll('.top-title-row-left-part').forEach((section)=>{
+
+  const title = section.querySelector('.typ-effect');
+  const heading = section.querySelector('h2');
+
+  // split words
+  let words = title.innerText.split(" ");
+
+  title.innerHTML = words.map(word => 
+    `<span class="word">${word}</span>`
+  ).join(" ");
+
+  const wordsEl = title.querySelectorAll(".word");
+
+  const tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:section,
+      start:"top 85%",
+      toggleActions:"play none none none"
+    }
+  });
+
+  // Heading animation (opacity + blur only)
+  tl.from(heading,{
+    opacity:0,
+    filter:"blur(10px)",
+    duration:0.4,
+    ease:"power2.out"
+  })
+
+  // Word animation after heading
+  .fromTo(wordsEl,
+  {
+    opacity:0,
+    y:30,
+    filter:"blur(10px)"
+  },
+  {
+    opacity:1,
+    y:0,
+    filter:"blur(0px)",
+    duration:0.4,
+    stagger:0.08,
+    ease:"power3.out"
+  },"+=0.2");
+
+});
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+let tl = gsap.timeline({
+  scrollTrigger:{
+    trigger: ".pro-cards-sec",
+    start: "top 70%",
+    end: "center center",
+    scrub: 2   // momentum / inertia
+  }
+});
+
+/* TEXT */
+tl.fromTo(".professionals-card-top",
+{
+  y: 120,
+},
+{
+  y: 0,
+  ease: "power2.out"
+},0);
+
+
+/* IMAGE */
+tl.fromTo(".professionals-card-bottom",
+{
+  y: 160
+},
+{
+  y: -130,
+  ease: "power2.out"
+},0);
