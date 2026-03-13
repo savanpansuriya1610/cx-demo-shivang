@@ -47,7 +47,9 @@ body {
   color: var(--color-white);
   overflow: hidden;
 }
-
+.hide {
+  display: none !important;
+}
 span.btn-text {
   font-weight: 500;
   font-size: 16px;
@@ -2927,4 +2929,172 @@ span.professionals-card-small-title {
 }
 .short-key-points .short-point .short-point-text{
   color: #fff;
+}
+
+.pro-card-inner-wrapper {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pro-card-inner-wrapper h2 {
+    color: #fff;
+    font-weight: 500;
+    font-size: 26px;
+    margin-bottom: 16px;
+}
+
+.pro-card-inner-wrapper > p {
+    color: rgb(255 255 255 / 70%);
+    margin-bottom: 32px;
+}
+
+.pro-card-inner-wrapper > p > span {
+    color: #fff;
+}
+
+.growth-card__user-badge {
+    width: 25px;
+    height: 25px;
+}
+
+.growth-card__user-badge img {
+    width: 100%;
+}
+.growth-card {
+    height: 100%;
+}
+
+.growth-card__header {
+    z-index: 3;
+    flex-flow: row;
+    flex: none;
+    place-content: center space-between;
+    align-items: center;
+    width: 100%;
+    height: min-content;
+    padding: 0 0 0 20px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.bussiness-review-card {
+  background-color: var(--token-c937385f-090c-43b5-8cfd-0127d389fca6, rgb(9, 9, 9));
+    border-radius: 13px;
+    box-shadow: rgba(184, 180, 180, 0.08) 0px 2px 0px 0px inset;
+        flex-flow: column;
+    flex: 1 0 0;
+    place-content: center;
+    align-items: center;
+    gap: 54px;
+    width: 1px;
+    height: min-content;
+    padding: 40px 24px 24px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.skills-list-wrapper {
+    border: 1px solid #ffffff12;
+    background-color: #000;
+    will-change: var(--framer-will-change-override, transform);
+    border-radius: 16px;
+    padding: 48px 32px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 2px #ffffff1a;
+}
+
+.skills-list-wrapper ul {
+ flex-flow: wrap;
+    flex: none;
+    place-content: center flex-start;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    height: min-content;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+.skills-list-wrapper ul li {
+background-color: var(--token-eb09dbbf-ef85-4b7f-81a5-44e9b062efb7, rgb(0, 0, 0));
+    border-radius: 8px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 2px 0px 0px inset;
+    display: inline-flex;
+    flex-flow: row;
+    place-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+.skills-section .about__fade-left-col {
+    padding-left: 50px;
+    width:calc(38% - 16px);
+}
+.skills-section .about__fade-right-col {
+    width: calc(62% - 16px);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.experience {
+    width: 100%;
+    padding: 0px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.experience__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0px 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.experience__role {
+  flex: 1;
+}
+
+.experience__company {
+  flex: 1;
+}
+
+.experience__date {
+  flex: 1;
+  text-align: right;
+}
+.skills-section img.about__fade-img {
+    object-fit: cover;
+}
+.skills-section .about__fade-img-wrapper .about__fade-img-box{
+  background: linear-gradient(130deg, var(--token-824b0275-9b90-4fdc-a563-7ec722d766de, rgb(63, 63, 62)) -49%, var(--token-0a4ceaa7-f975-45bf-afa8-3b008919fdea, rgb(20, 20, 20)) 25%, rgba(4, 3, 3, 0) 108%);
+}
+
+.skills-section .left-bg-start {
+ pointer-events: none;
+    z-index: 5;
+    flex: none;
+    gap: 0;
+    width: 106px;
+    position: absolute;
+    top: -83px;
+    bottom: -65px;
+    left: 18px;
+    overflow: hidden;
+}
+
+.growth-card__header .growth-card__tag {
+    background-color: rgb(5 5 5);
+    border-radius: 8px;
+    padding: 8px 16px;
 }
