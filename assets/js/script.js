@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       mouseX = e.clientX - cursorSize;
       mouseY = e.clientY - cursorSize;
 
-      if (!isVisible) {
+      if (!isVisible) {  
         cursor.style.opacity = 1;
         isVisible = true;
       }
